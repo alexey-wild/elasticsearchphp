@@ -5,14 +5,14 @@ namespace Elasticsearchphp\Components\Queries;
 use Elasticsearchphp\Components;
 
 /**
- * @method Elasticsearchphp\Components\Queries\Fuzzy field() field(\string $value)
- * @method Elasticsearchphp\Components\Queries\Fuzzy value() value(\string $value)
- * @method Elasticsearchphp\Components\Queries\Fuzzy boost() boost(\float $value) Default: 1.0
- * @method Elasticsearchphp\Components\Queries\Fuzzy min_similarity() min_similarity(\float $value) Default: 0.2
- * @method Elasticsearchphp\Components\Queries\Fuzzy prefix_length() prefix_length(\int $value) Default: 0
- * @method Elasticsearchphp\Components\Queries\Fuzzy max_expansions() max_expansions(\int $value) Default: 10
+ * @method \Elasticsearchphp\Components\Queries\Fuzzy field() field(\string $value)
+ * @method \Elasticsearchphp\Components\Queries\Fuzzy value() value(\string $value)
+ * @method \Elasticsearchphp\Components\Queries\Fuzzy boost() boost(\float $value) Default: 1.0
+ * @method \Elasticsearchphp\Components\Queries\Fuzzy min_similarity() min_similarity(\float $value) Default: 0.2
+ * @method \Elasticsearchphp\Components\Queries\Fuzzy prefix_length() prefix_length(\int $value) Default: 0
+ * @method \Elasticsearchphp\Components\Queries\Fuzzy max_expansions() max_expansions(\int $value) Default: 10
  */
-class Fuzzy extends Elasticsearchphp\Components\BaseComponent implements Elasticsearchphp\Components\QueryInterface
+class Fuzzy extends \Elasticsearchphp\Components\BaseComponent implements \Elasticsearchphp\Components\QueryInterface
 {
     public function __construct($hashMap = null)
     {

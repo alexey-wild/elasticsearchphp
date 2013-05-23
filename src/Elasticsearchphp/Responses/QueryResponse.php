@@ -30,7 +30,7 @@ class QueryResponse extends Response implements \IteratorAggregate, \Countable
     public $hits;
 
     /**
-     * @param  \Elasticsearchphp\Common\tmp\RollingCurl\Request           $response
+     * @param  \Elasticsearchphp\RollingCurl\Request                $response
      * @throws \Elasticsearchphp\Exceptions\BadResponseException
      */
     public function __construct($response)

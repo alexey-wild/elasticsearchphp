@@ -1,6 +1,6 @@
 <?php
 
-namespace Elasticsearchphp\RollingCurl\RollingCurl;
+namespace Elasticsearchphp\RollingCurl;
 
 /**
  * Class that represent a single curl request
@@ -51,7 +51,7 @@ class Request
     /**
      * @param  string               $url
      * @param  string               $method
-     * @return Elasticsearchphp\RollingCurl\Request
+     * @return \Elasticsearchphp\RollingCurl\Request
      */
     public function __construct($url, $method="GET")
     {

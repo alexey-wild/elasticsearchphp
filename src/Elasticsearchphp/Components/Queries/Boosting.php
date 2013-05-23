@@ -5,11 +5,11 @@ namespace Elasticsearchphp\Components\Queries;
 use Elasticsearchphp\Components;
 
 /**
- * @method Elasticsearchphp\Components\Queries\Boosting positive() positive(\sherlock\components\QueryInterface $value)
- * @method Elasticsearchphp\Components\Queries\Boosting negative() negative(\sherlock\components\QueryInterface $value)
- * @method Elasticsearchphp\Components\Queries\Boosting negative_boost() negative_boost(\float $value) Default: 0.2
+ * @method \Elasticsearchphp\Components\Queries\Boosting positive() positive(\sherlock\components\QueryInterface $value)
+ * @method \Elasticsearchphp\Components\Queries\Boosting negative() negative(\sherlock\components\QueryInterface $value)
+ * @method \Elasticsearchphp\Components\Queries\Boosting negative_boost() negative_boost(\float $value) Default: 0.2
  */
-class Boosting extends Elasticsearchphp\Components\BaseComponent implements Elasticsearchphp\Components\QueryInterface
+class Boosting extends \Elasticsearchphp\Components\BaseComponent implements \Elasticsearchphp\Components\QueryInterface
 {
     public function __construct($hashMap = null)
     {

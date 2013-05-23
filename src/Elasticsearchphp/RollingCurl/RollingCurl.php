@@ -1,8 +1,8 @@
 <?php
 
-namespace Elasticsearchphp\RollingCurl\RollingCurl;
+namespace Elasticsearchphp\RollingCurl;
 
-use Elasticsearchphp\RollingCurl\RollingCurl\Request;
+use Elasticsearchphp\RollingCurl\Request;
 
 /**
  * Class that holds a rolling queue of curl requests.

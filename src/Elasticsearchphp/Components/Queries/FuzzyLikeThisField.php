@@ -5,16 +5,16 @@ namespace Elasticsearchphp\Components\Queries;
 use Elasticsearchphp\Components;
 
 /**
- * @method Elasticsearchphp\Components\Queries\FuzzyLikeThisField field() field(\string $value)
- * @method Elasticsearchphp\Components\Queries\FuzzyLikeThisField like_text() like_text(\string $value)
- * @method Elasticsearchphp\Components\Queries\FuzzyLikeThisField max_query_terms() max_query_terms(\int $value) Default: 10
- * @method Elasticsearchphp\Components\Queries\FuzzyLikeThisField min_similarity() min_similarity(\float $value) Default: 0.5
- * @method Elasticsearchphp\Components\Queries\FuzzyLikeThisField prefix_length() prefix_length(\int $value) Default: 3
- * @method Elasticsearchphp\Components\Queries\FuzzyLikeThisField boost() boost(\float $value) Default: 2.0
- * @method Elasticsearchphp\Components\Queries\FuzzyLikeThisField analyzer() analyzer(\string $value) Default: "default"
- * @method Elasticsearchphp\Components\Queries\FuzzyLikeThisField ignore_tf() ignore_tf(\bool $value) Default: false
+ * @method \Elasticsearchphp\Components\Queries\FuzzyLikeThisField field() field(\string $value)
+ * @method \Elasticsearchphp\Components\Queries\FuzzyLikeThisField like_text() like_text(\string $value)
+ * @method \Elasticsearchphp\Components\Queries\FuzzyLikeThisField max_query_terms() max_query_terms(\int $value) Default: 10
+ * @method \Elasticsearchphp\Components\Queries\FuzzyLikeThisField min_similarity() min_similarity(\float $value) Default: 0.5
+ * @method \Elasticsearchphp\Components\Queries\FuzzyLikeThisField prefix_length() prefix_length(\int $value) Default: 3
+ * @method \Elasticsearchphp\Components\Queries\FuzzyLikeThisField boost() boost(\float $value) Default: 2.0
+ * @method \Elasticsearchphp\Components\Queries\FuzzyLikeThisField analyzer() analyzer(\string $value) Default: "default"
+ * @method \Elasticsearchphp\Components\Queries\FuzzyLikeThisField ignore_tf() ignore_tf(\bool $value) Default: false
  */
-class FuzzyLikeThisField extends Elasticsearchphp\Components\BaseComponent implements Elasticsearchphp\Components\QueryInterface
+class FuzzyLikeThisField extends \Elasticsearchphp\Components\BaseComponent implements \Elasticsearchphp\Components\QueryInterface
 {
     public function __construct($hashMap = null)
     {

@@ -3,9 +3,11 @@
 namespace Elasticsearchphp\Requests;
 
 use Elasticsearchphp\Exceptions;
-use Elasticsearchphp\RollingCurl\RollingCurl;
-use Elasticsearchphp\Responses\IndexResponse;
+use Elasticsearchphp\Cluster;
+use Elasticsearchphp\RollingCurl;
 use Elasticsearchphp\Responses\Response;
+use Elasticsearchphp\Events\Events;
+use Elasticsearchphp\Events\RequestEvent;
 
 /**
  * Base class for various requests.
@@ -14,6 +16,8 @@ use Elasticsearchphp\Responses\Response;
  */
 class Request
 {
+
+    protected $dispatcher;
 
     public $node;
 
@@ -27,27 +31,29 @@ class Request
 
 
     /**
-     * @throws Elasticsearchphp\Exceptions\BadResponseException
+     * @param  \Symfony\Component\EventDispatcher\EventDispatcher $dispatcher
+     * @throws \Elasticsearchphp\Exceptions\BadResponseException
      */
-    public function __construct()
+    public function __construct($dispatcher)
     {
-        $this->batch = new BatchCommand();
+        if (!isset($dispatcher)) throw new Exceptions\BadResponseException("An Event Dispatcher must be injected into all Request objects");
+
+        $this->dispatcher = $dispatcher;
+        $this->batch      = new BatchCommand();
     }
 
     /**
      * Execute the Request, performs on the actual transport layer
      *
-     * @throws exceptions\RuntimeException
-     * @throws Elasticsearchphp\Exceptions\BadResponseException
-     * @throws Elasticsearchphp\Exceptions\ClientErrorResponseException
-     * @return Elasticsearchphp\Responses\Response
+     * @throws \RuntimeException
+     * @throws \Elasticsearchphp\Exceptions\BadResponseException
+     * @throws \Elasticsearchphp\Exceptions\ClientErrorResponseException
+     * @return \Elasticsearchphp\Responses\Response
      */
     public function execute()
     {
         $reflector = new \ReflectionClass(get_class($this));
         $class = $reflector->getShortName();
-
-        Analog::debug("Request->execute()");
 
         //construct a requestEvent and dispatch it with the "request.preexecute" event
         //This will, among potentially other things, populate the $node variable with
@@ -56,24 +62,11 @@ class Request
         $this->dispatcher->dispatch(Events::REQUEST_PREEXECUTE, $event);
 
         //Make sure the node variable is set correctly after the event
-        if (!isset($this->node)) {
-            Analog::error("Request requires a valid, non-empty node");
-            throw new exceptions\RuntimeException("Request requires a valid, non-empty node");
-        }
-
-        if (!isset($this->node['host'])) {
-            Analog::error("Request requires a host to connect to");
-            throw new exceptions\RuntimeException("Request requires a host to connect to");
-        }
-
-        if (!isset($this->node['port'])) {
-            Analog::error("Request requires a port to connect to");
-            throw new exceptions\RuntimeException("Request requires a port to connect to");
-        }
+        if (!isset($this->node)) throw new Exceptions\RuntimeException("Request requires a valid, non-empty node");
+        if (!isset($this->node['host'])) throw new Exceptions\RuntimeException("Request requires a host to connect to");
+        if (!isset($this->node['port'])) throw new Exceptions\RuntimeException("Request requires a port to connect to");
 
         $path = 'http://'.$this->node['host'].':'.$this->node['port'];
-
-        Analog::debug("Request->commands: ".print_r($this->batch, true));
 
         $rolling = new RollingCurl\RollingCurl();
         $rolling->setHeaders(array('Content-Type: application/json'));
@@ -92,15 +85,10 @@ class Request
             $req = $request;
             $action = $req->getAction();
 
-            if ($action == 'put' || $action == 'post') {
-                $rolling->$action($path.$req->getURI(), json_encode($req->getData()), array('Content-Type: application/json'));
-            } else {
-                $rolling->$action($path.$req->getURI());
-            }
+            if ($action == 'put' || $action == 'post') $rolling->$action($path.$req->getURI(), json_encode($req->getData()), array('Content-Type: application/json'));
+            else $rolling->$action($path.$req->getURI());
 
-            if ($counter > $window) {
-                break;
-            }
+            if ($counter > $window) break;
         }
 
         /**
@@ -140,17 +128,8 @@ class Request
 
         $this->batch = new BatchCommand();
 
-        //This is kinda gross...
-        $returnResponse = '\Sherlock\responses\Response';
-        if ($class == 'SearchRequest') {
-            $returnResponse =  '\Sherlock\responses\QueryResponse';
-        } elseif ($class == 'IndexRequest') {
-            $returnResponse =  '\Sherlock\responses\IndexResponse';
-        } elseif ($class == 'IndexDocumentRequest') {
-            $returnResponse = '\Sherlock\responses\IndexResponse';
-        } elseif ($class == 'DeleteDocumentRequest') {
-            $returnResponse = '\Sherlock\responses\DeleteResponse';
-        }
+        $returnResponse = '\Elasticsearchphp\Responses\Response';
+        if ($class == 'SearchRequest') $returnResponse =  '\Elasticsearchphp\Responses\QueryResponse';
 
         $finalResponse = array();
         foreach ($ret as $response) {

@@ -5,9 +5,9 @@ namespace Elasticsearchphp\Components\Queries;
 use Elasticsearchphp\Components;
 
 /**
- * @method Elasticsearchphp\Components\Queries\MatchAll boost() boost(\float $value) Default: 1
+ * @method \Elasticsearchphp\Components\Queries\MatchAll boost() boost(\float $value) Default: 1
  */
-class MatchAll extends Elasticsearchphp\Components\BaseComponent implements Elasticsearchphp\Components\QueryInterface
+class MatchAll extends \Elasticsearchphp\Components\BaseComponent implements \Elasticsearchphp\Components\QueryInterface
 {
     public function __construct($hashMap = null)
     {

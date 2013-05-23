@@ -3,11 +3,11 @@
 namespace Elasticsearchphp\Requests;
 
 /**
- * @method Elasticsearchphp\Requests\Command action() action(\string $value)
- * @method Elasticsearchphp\Requests\Command id() id(\string $value)
- * @method Elasticsearchphp\Requests\Command index() index(\string $value)
- * @method Elasticsearchphp\Requests\Command type() type(\string $value)
- * @method Elasticsearchphp\Requests\Command suffix() suffix(\string $value)
+ * @method \Elasticsearchphp\Requests\Command action() action(\string $value)
+ * @method \Elasticsearchphp\Requests\Command id() id(\string $value)
+ * @method \Elasticsearchphp\Requests\Command index() index(\string $value)
+ * @method \Elasticsearchphp\Requests\Command type() type(\string $value)
+ * @method \Elasticsearchphp\Requests\Command suffix() suffix(\string $value)
  */
 class Command implements CommandInterface
 {
@@ -34,7 +34,7 @@ class Command implements CommandInterface
     /**
      * @param $name
      * @param $args
-     * @return Elasticsearchphp\Requests\Command
+     * @return \Elasticsearchphp\Requests\Command
      */
     public function __call($name, $args)
     {
@@ -44,7 +44,7 @@ class Command implements CommandInterface
     }
 
     /**
-     * @param \string|\array $data
+     * @param string|array $data
      */
     public function data($data)
     {

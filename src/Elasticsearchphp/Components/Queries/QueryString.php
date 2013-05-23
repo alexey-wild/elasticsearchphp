@@ -5,25 +5,25 @@ namespace Elasticsearchphp\Components\Queries;
 use Elasticsearchphp\Components;
 
 /**
- * @method Elasticsearchphp\Components\Queries\QueryString query() query(\string $value)
- * @method Elasticsearchphp\Components\Queries\QueryString default_field() default_field(\string $value) Default: "_all"
- * @method Elasticsearchphp\Components\Queries\QueryString boost() boost(\float $value) Default: 2.0
- * @method Elasticsearchphp\Components\Queries\QueryString enable_position_increments() enable_position_increments(\int $value) Default: 1
- * @method Elasticsearchphp\Components\Queries\QueryString default_operator() default_operator(\string $value) Default: "OR"
- * @method Elasticsearchphp\Components\Queries\QueryString analyzer() analyzer(\string $value) Default: "default"
- * @method Elasticsearchphp\Components\Queries\QueryString allow_leading_wildcard() allow_leading_wildcard(\int $value) Default: 0
- * @method Elasticsearchphp\Components\Queries\QueryString lowercase_expanded_terms() lowercase_expanded_terms(\int $value) Default: 1
- * @method Elasticsearchphp\Components\Queries\QueryString fuzzy_min_sim() fuzzy_min_sim(\float $value) Default: 0.5
- * @method Elasticsearchphp\Components\Queries\QueryString fuzzy_prefix_length() fuzzy_prefix_length(\int $value) Default: 2
- * @method Elasticsearchphp\Components\Queries\QueryString lenient() lenient(\bool $value) Default: true
- * @method Elasticsearchphp\Components\Queries\QueryString phrase_slop() phrase_slop(\int $value) Default: 10
- * @method Elasticsearchphp\Components\Queries\QueryString analyze_wildcard() analyze_wildcard(\bool $value) Default: true
- * @method Elasticsearchphp\Components\Queries\QueryString auto_generate_phrase_queries() auto_generate_phrase_queries(\bool $value) Default: false
- * @method Elasticsearchphp\Components\Queries\QueryString rewrite() rewrite(\string $value) Default: "constant_score_default"
- * @method Elasticsearchphp\Components\Queries\QueryString quote_analyzer() quote_analyzer(\string $value) Default: "standard"
- * @method Elasticsearchphp\Components\Queries\QueryString quote_field_suffix() quote_field_suffix(\string $value) Default: ".unstemmed"
+ * @method \Elasticsearchphp\Components\Queries\QueryString query() query(\string $value)
+ * @method \Elasticsearchphp\Components\Queries\QueryString default_field() default_field(\string $value) Default: "_all"
+ * @method \Elasticsearchphp\Components\Queries\QueryString boost() boost(\float $value) Default: 2.0
+ * @method \Elasticsearchphp\Components\Queries\QueryString enable_position_increments() enable_position_increments(\int $value) Default: 1
+ * @method \Elasticsearchphp\Components\Queries\QueryString default_operator() default_operator(\string $value) Default: "OR"
+ * @method \Elasticsearchphp\Components\Queries\QueryString analyzer() analyzer(\string $value) Default: "default"
+ * @method \Elasticsearchphp\Components\Queries\QueryString allow_leading_wildcard() allow_leading_wildcard(\int $value) Default: 0
+ * @method \Elasticsearchphp\Components\Queries\QueryString lowercase_expanded_terms() lowercase_expanded_terms(\int $value) Default: 1
+ * @method \Elasticsearchphp\Components\Queries\QueryString fuzzy_min_sim() fuzzy_min_sim(\float $value) Default: 0.5
+ * @method \Elasticsearchphp\Components\Queries\QueryString fuzzy_prefix_length() fuzzy_prefix_length(\int $value) Default: 2
+ * @method \Elasticsearchphp\Components\Queries\QueryString lenient() lenient(\bool $value) Default: true
+ * @method \Elasticsearchphp\Components\Queries\QueryString phrase_slop() phrase_slop(\int $value) Default: 10
+ * @method \Elasticsearchphp\Components\Queries\QueryString analyze_wildcard() analyze_wildcard(\bool $value) Default: true
+ * @method \Elasticsearchphp\Components\Queries\QueryString auto_generate_phrase_queries() auto_generate_phrase_queries(\bool $value) Default: false
+ * @method \Elasticsearchphp\Components\Queries\QueryString rewrite() rewrite(\string $value) Default: "constant_score_default"
+ * @method \Elasticsearchphp\Components\Queries\QueryString quote_analyzer() quote_analyzer(\string $value) Default: "standard"
+ * @method \Elasticsearchphp\Components\Queries\QueryString quote_field_suffix() quote_field_suffix(\string $value) Default: ".unstemmed"
  */
-class QueryString extends Elasticsearchphp\Components\BaseComponent implements Elasticsearchphp\Components\QueryInterface
+class QueryString extends \Elasticsearchphp\Components\BaseComponent implements \Elasticsearchphp\Components\QueryInterface
 {
     public function __construct($hashMap = null)
     {

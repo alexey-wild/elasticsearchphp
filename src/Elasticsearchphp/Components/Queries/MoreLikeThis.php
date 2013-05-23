@@ -5,20 +5,20 @@ namespace Elasticsearchphp\Components\Queries;
 use Elasticsearchphp\Components;
 
 /**
- * @method Elasticsearchphp\Components\Queries\MoreLikeThis fields() fields(array $value)
- * @method Elasticsearchphp\Components\Queries\MoreLikeThis like_text() like_text(\string $value)
- * @method Elasticsearchphp\Components\Queries\MoreLikeThis min_term_freq() min_term_freq(\int $value) Default: 2
- * @method Elasticsearchphp\Components\Queries\MoreLikeThis max_query_terms() max_query_terms(\int $value) Default: 25
- * @method Elasticsearchphp\Components\Queries\MoreLikeThis percent_terms_to_match() percent_terms_to_match(\float $value) Default: 0.3
- * @method Elasticsearchphp\Components\Queries\MoreLikeThis stop_words() stop_words(array $value) Default: array()
- * @method Elasticsearchphp\Components\Queries\MoreLikeThis min_doc_freq() min_doc_freq(\int $value) Default: 5
- * @method Elasticsearchphp\Components\Queries\MoreLikeThis max_doc_freq() max_doc_freq(\int $value) Default: 0
- * @method Elasticsearchphp\Components\Queries\MoreLikeThis min_word_len() min_word_len(\int $value) Default: 0
- * @method Elasticsearchphp\Components\Queries\MoreLikeThis max_word_len() max_word_len(\int $value) Default: 0
- * @method Elasticsearchphp\Components\Queries\MoreLikeThis boost_terms() boost_terms(\int $value) Default: 1
- * @method Elasticsearchphp\Components\Queries\MoreLikeThis boost() boost(\float $value) Default: 1.0
+ * @method \Elasticsearchphp\Components\Queries\MoreLikeThis fields() fields(array $value)
+ * @method \Elasticsearchphp\Components\Queries\MoreLikeThis like_text() like_text(\string $value)
+ * @method \Elasticsearchphp\Components\Queries\MoreLikeThis min_term_freq() min_term_freq(\int $value) Default: 2
+ * @method \Elasticsearchphp\Components\Queries\MoreLikeThis max_query_terms() max_query_terms(\int $value) Default: 25
+ * @method \Elasticsearchphp\Components\Queries\MoreLikeThis percent_terms_to_match() percent_terms_to_match(\float $value) Default: 0.3
+ * @method \Elasticsearchphp\Components\Queries\MoreLikeThis stop_words() stop_words(array $value) Default: array()
+ * @method \Elasticsearchphp\Components\Queries\MoreLikeThis min_doc_freq() min_doc_freq(\int $value) Default: 5
+ * @method \Elasticsearchphp\Components\Queries\MoreLikeThis max_doc_freq() max_doc_freq(\int $value) Default: 0
+ * @method \Elasticsearchphp\Components\Queries\MoreLikeThis min_word_len() min_word_len(\int $value) Default: 0
+ * @method \Elasticsearchphp\Components\Queries\MoreLikeThis max_word_len() max_word_len(\int $value) Default: 0
+ * @method \Elasticsearchphp\Components\Queries\MoreLikeThis boost_terms() boost_terms(\int $value) Default: 1
+ * @method \Elasticsearchphp\Components\Queries\MoreLikeThis boost() boost(\float $value) Default: 1.0
  */
-class MoreLikeThis extends Elasticsearchphp\Components\BaseComponent implements Elasticsearchphp\Components\QueryInterface
+class MoreLikeThis extends \Elasticsearchphp\Components\BaseComponent implements \Elasticsearchphp\Components\QueryInterface
 {
     public function __construct($hashMap = null)
     {

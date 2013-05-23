@@ -5,11 +5,11 @@ namespace Elasticsearchphp\Components\Queries;
 use Elasticsearchphp\Components;
 
 /**
- * @method Elasticsearchphp\Components\Queries\HasChild type() type(\string $value)
- * @method Elasticsearchphp\Components\Queries\HasChild score_type() score_type(\string $value) Default: "sum"
- * @method Elasticsearchphp\Components\Queries\HasChild query() query(\sherlock\components\QueryInterface $value)
+ * @method \Elasticsearchphp\Components\Queries\HasChild type() type(\string $value)
+ * @method \Elasticsearchphp\Components\Queries\HasChild score_type() score_type(\string $value) Default: "sum"
+ * @method \Elasticsearchphp\Components\Queries\HasChild query() query(\sherlock\components\QueryInterface $value)
  */
-class HasChild extends Elasticsearchphp\Components\BaseComponent implements Elasticsearchphp\Components\QueryInterface
+class HasChild extends \Elasticsearchphp\Components\BaseComponent implements \Elasticsearchphp\Components\QueryInterface
 {
     public function __construct($hashMap = null)
     {

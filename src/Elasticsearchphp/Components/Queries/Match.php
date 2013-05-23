@@ -4,21 +4,21 @@ namespace Elasticsearchphp\Components\Queries;
 
 use Elasticsearchphp\Components;
 
-// method Elasticsearchphp\Components\Queries\Match fuzzy_rewrite() fuzzy_rewrite(\string $value) Default: 'constant_score_default'
 /**
- * @method Elasticsearchphp\Components\Queries\Match field() field(\string $value)
- * @method Elasticsearchphp\Components\Queries\Match query() query(\string $value)
- * @method Elasticsearchphp\Components\Queries\Match boost() boost(\float $value) Default: 1.0
- * @method Elasticsearchphp\Components\Queries\Match operator() operator(\string $value) Default: 'and'
- * @method Elasticsearchphp\Components\Queries\Match analyzer() analyzer(\string $value) Default: 'default'
- * @method Elasticsearchphp\Components\Queries\Match fuzziness() fuzziness(\float $value) Default: null
- * @method Elasticsearchphp\Components\Queries\Match lenient() lenient(\bool $value) Default: true
- * @method Elasticsearchphp\Components\Queries\Match max_expansions() max_expansions(\int $value) Default: 100
- * @method Elasticsearchphp\Components\Queries\Match minimum_should_match() minimum_should_match(\int $value) Default: 2
- * @method Elasticsearchphp\Components\Queries\Match prefix_length() prefix_length(\int $value) Default: 2
- * @method Elasticsearchphp\Components\Queries\Match type() type(\string $value) Default: null
+ * @method \Elasticsearchphp\Components\Queries\Match fuzzy_rewrite() fuzzy_rewrite(\string $value) Default: 'constant_score_default'
+ * @method \Elasticsearchphp\Components\Queries\Match field() field(\string $value)
+ * @method \Elasticsearchphp\Components\Queries\Match query() query(\string $value)
+ * @method \Elasticsearchphp\Components\Queries\Match boost() boost(\float $value) Default: 1.0
+ * @method \Elasticsearchphp\Components\Queries\Match operator() operator(\string $value) Default: 'and'
+ * @method \Elasticsearchphp\Components\Queries\Match analyzer() analyzer(\string $value) Default: 'default'
+ * @method \Elasticsearchphp\Components\Queries\Match fuzziness() fuzziness(\float $value) Default: null
+ * @method \Elasticsearchphp\Components\Queries\Match lenient() lenient(\bool $value) Default: true
+ * @method \Elasticsearchphp\Components\Queries\Match max_expansions() max_expansions(\int $value) Default: 100
+ * @method \Elasticsearchphp\Components\Queries\Match minimum_should_match() minimum_should_match(\int $value) Default: 2
+ * @method \Elasticsearchphp\Components\Queries\Match prefix_length() prefix_length(\int $value) Default: 2
+ * @method \Elasticsearchphp\Components\Queries\Match type() type(\string $value) Default: null
  */
-class Match extends Elasticsearchphp\Components\BaseComponent implements Elasticsearchphp\Components\QueryInterface
+class Match extends \Elasticsearchphp\Components\BaseComponent implements \Elasticsearchphp\Components\QueryInterface
 {
     public function __construct($hashMap = null)
     {

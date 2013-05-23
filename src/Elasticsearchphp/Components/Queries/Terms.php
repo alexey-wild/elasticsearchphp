@@ -5,10 +5,10 @@ namespace Elasticsearchphp\Components\Queries;
 use Elasticsearchphp\Components;
 
 /**
- * @method Elasticsearchphp\Components\Queries\Terms field() field(\string $value)
- * @method Elasticsearchphp\Components\Queries\Terms minimum_match() minimum_match(\int $value) Default: 2
+ * @method \Elasticsearchphp\Components\Queries\Terms field() field(\string $value)
+ * @method \Elasticsearchphp\Components\Queries\Terms minimum_match() minimum_match(\int $value) Default: 2
  */
-class Terms extends Elasticsearchphp\Components\BaseComponent implements Elasticsearchphp\Components\QueryInterface
+class Terms extends \Elasticsearchphp\Components\BaseComponent implements \Elasticsearchphp\Components\QueryInterface
 {
     public function __construct($hashMap = null)
     {

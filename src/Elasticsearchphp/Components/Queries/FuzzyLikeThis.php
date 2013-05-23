@@ -5,16 +5,16 @@ namespace Elasticsearchphp\Components\Queries;
 use Elasticsearchphp\Components;
 
 /**
- * @method Elasticsearchphp\Components\Queries\FuzzyLikeThis fields() fields(array $value)
- * @method Elasticsearchphp\Components\Queries\FuzzyLikeThis like_text() like_text(\string $value)
- * @method Elasticsearchphp\Components\Queries\FuzzyLikeThis max_query_terms() max_query_terms(\int $value) Default: 10
- * @method Elasticsearchphp\Components\Queries\FuzzyLikeThis min_similarity() min_similarity(\float $value) Default: 0.5
- * @method Elasticsearchphp\Components\Queries\FuzzyLikeThis prefix_length() prefix_length(\int $value) Default: 3
- * @method Elasticsearchphp\Components\Queries\FuzzyLikeThis boost() boost(\float $value) Default: 2.0
- * @method Elasticsearchphp\Components\Queries\FuzzyLikeThis analyzer() analyzer(\string $value) Default: "default"
- * @method Elasticsearchphp\Components\Queries\FuzzyLikeThis ignore_tf() ignore_tf(\bool $value) Default: false
+ * @method \Elasticsearchphp\Components\Queries\FuzzyLikeThis fields() fields(array $value)
+ * @method \Elasticsearchphp\Components\Queries\FuzzyLikeThis like_text() like_text(\string $value)
+ * @method \Elasticsearchphp\Components\Queries\FuzzyLikeThis max_query_terms() max_query_terms(\int $value) Default: 10
+ * @method \Elasticsearchphp\Components\Queries\FuzzyLikeThis min_similarity() min_similarity(\float $value) Default: 0.5
+ * @method \Elasticsearchphp\Components\Queries\FuzzyLikeThis prefix_length() prefix_length(\int $value) Default: 3
+ * @method \Elasticsearchphp\Components\Queries\FuzzyLikeThis boost() boost(\float $value) Default: 2.0
+ * @method \Elasticsearchphp\Components\Queries\FuzzyLikeThis analyzer() analyzer(\string $value) Default: "default"
+ * @method \Elasticsearchphp\Components\Queries\FuzzyLikeThis ignore_tf() ignore_tf(\bool $value) Default: false
  */
-class FuzzyLikeThis extends Elasticsearchphp\Components\BaseComponent implements Elasticsearchphp\Components\QueryInterface
+class FuzzyLikeThis extends \Elasticsearchphp\Components\BaseComponent implements \Elasticsearchphp\Components\QueryInterface
 {
     public function __construct($hashMap = null)
     {

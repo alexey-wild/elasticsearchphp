@@ -5,10 +5,10 @@ namespace Elasticsearchphp\Components\Queries;
 use Elasticsearchphp\Components;
 
 /**
- * @method Elasticsearchphp\Components\Queries\Indices no_match_query() no_match_query(\sherlock\components\QueryInterface $value)
- * @method Elasticsearchphp\Components\Queries\Indices query() query(\sherlock\components\QueryInterface $value)
+ * @method \Elasticsearchphp\Components\Queries\Indices no_match_query() no_match_query(\sherlock\components\QueryInterface $value)
+ * @method \Elasticsearchphp\Components\Queries\Indices query() query(\sherlock\components\QueryInterface $value)
  */
-class Indices extends Elasticsearchphp\Components\BaseComponent implements Elasticsearchphp\Components\QueryInterface
+class Indices extends \Elasticsearchphp\Components\BaseComponent implements \Elasticsearchphp\Components\QueryInterface
 {
     public function __construct($hashMap = null)
     {

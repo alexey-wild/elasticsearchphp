@@ -4,17 +4,16 @@ namespace Elasticsearchphp\Requests;
 
 use Elasticsearchphp\Exceptions;
 use Elasticsearchphp\Components;
-use Elasticsearchphp\Components\Queries;
-use Elasticsearchphp\Components\FacetInterface;
+use Symfony\Component\EventDispatcher\EventDispatcher;
 
 /**
  * SearchRequest facilitates searching an ES index using the ES query DSL
  *
- * @method Elasticsearchphp\Requests\SearchRequest timeout() timeout(\int $value)
- * @method Elasticsearchphp\Requests\SearchRequest from() from(\int $value)
- * @method Elasticsearchphp\Requests\SearchRequest size() size(\int $value)
- * @method Elasticsearchphp\Requests\SearchRequest search_type() search_type(\int $value)
- * @method Elasticsearchphp\Requests\SearchRequest routing() routing(mixed $value)
+ * @method \Elasticsearchphp\Requests\SearchRequest timeout() timeout(\int $value)
+ * @method \Elasticsearchphp\Requests\SearchRequest from() from(\int $value)
+ * @method \Elasticsearchphp\Requests\SearchRequest size() size(\int $value)
+ * @method \Elasticsearchphp\Requests\SearchRequest search_type() search_type(\int $value)
+ * @method \Elasticsearchphp\Requests\SearchRequest routing() routing(mixed $value)
  */
 class SearchRequest extends Request
 {
@@ -23,9 +22,17 @@ class SearchRequest extends Request
      */
     protected $params;
 
-    public function __construct()
+    /**
+     * @var \Symfony\Component\EventDispatcher\EventDispatcher
+     */
+    protected $dispatcher;
+
+    public function __construct($dispatcher)
     {
+        if (!isset($dispatcher)) throw new Exceptions\BadResponseException("Dispatcher argument required for IndexRequest");
+
         $this->params['filter'] = array();
+        $this->dispatcher = $dispatcher;
 
         parent::__construct($dispatcher);
     }
@@ -108,7 +115,9 @@ class SearchRequest extends Request
         //single param, array of sorts
         if (count($args) == 1 && is_array($args[0])) $args = $args[0];
 
-        foreach ($args as $arg) if ($arg instanceof Elasticsearchphp\Components\SortInterface) $this->params['sort'][] = $arg->toArray();
+        foreach ($args as $arg) {
+            if ($arg instanceof Components\SortInterface) $this->params['sort'][] = $arg->toArray();
+        }
 
         return $this;
     }
@@ -122,6 +131,19 @@ class SearchRequest extends Request
     public function filter($filter)
     {
         $this->params['filter'] = $filter;
+
+        return $this;
+    }
+
+    /**
+     * Sets the analyzer that will be executed
+     *
+     * @param $analyzer
+     * @return SearchRequest
+     */
+    public function analyzer($analyzer)
+    {
+        $this->params['analyzer'] = $analyzer;
 
         return $this;
     }
@@ -190,8 +212,8 @@ class SearchRequest extends Request
         $finalQuery = array();
 
         if (isset($this->params['query']) && $this->params['query'] instanceof Components\QueryInterface) $finalQuery['query'] = $this->params['query']->toArray();
-
         if (isset($this->params['filter']) && $this->params['filter'] instanceof Components\FilterInterface) $finalQuery['filter'] = $this->params['filter']->toArray();
+        if (isset($this->params['analyzer']) && $this->params['analyzer'] instanceof Components\MappingInterface) $finalQuery['analyzer'] = $this->params['analyzer']->toArray();
 
         foreach (array('from', 'size', 'timeout', 'sort') as $key) if (isset($this->params[$key])) $finalQuery[$key] = $this->params[$key];
 

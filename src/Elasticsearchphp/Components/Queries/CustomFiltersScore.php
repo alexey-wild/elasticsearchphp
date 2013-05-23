@@ -5,11 +5,11 @@ namespace Elasticsearchphp\Components\Queries;
 use Elasticsearchphp\Components;
 
 /**
- * @method Elasticsearchphp\Components\Queries\CustomFiltersScore query() query(\sherlock\components\QueryInterface $value)
- * @method Elasticsearchphp\Components\Queries\CustomFiltersScore score_mode() score_mode(\string $value) Default: "first"
- * @method Elasticsearchphp\Components\Queries\CustomFiltersScore max_boost() max_boost(\float $value) Default: 10
+ * @method \Elasticsearchphp\Components\Queries\CustomFiltersScore query() query(\sherlock\components\QueryInterface $value)
+ * @method \Elasticsearchphp\Components\Queries\CustomFiltersScore score_mode() score_mode(\string $value) Default: "first"
+ * @method \Elasticsearchphp\Components\Queries\CustomFiltersScore max_boost() max_boost(\float $value) Default: 10
  */
-class CustomFiltersScore extends Elasticsearchphp\Components\BaseComponent implements Elasticsearchphp\Components\QueryInterface
+class CustomFiltersScore extends \Elasticsearchphp\Components\BaseComponent implements \Elasticsearchphp\Components\QueryInterface
 {
     public function __construct($hashMap = null)
     {

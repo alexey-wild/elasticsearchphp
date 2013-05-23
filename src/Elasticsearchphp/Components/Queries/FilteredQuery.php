@@ -5,10 +5,10 @@ namespace Elasticsearchphp\Components\Queries;
 use Elasticsearchphp\Components;
 
 /**
- * @method Elasticsearchphp\Components\Queries\FilteredQuery query() query(\sherlock\components\QueryInterface $value)
- * @method Elasticsearchphp\Components\Queries\FilteredQuery filter() filter(\sherlock\components\FilterInterface $value)
+ * @method \Elasticsearchphp\Components\Queries\FilteredQuery query() query(\sherlock\components\QueryInterface $value)
+ * @method \Elasticsearchphp\Components\Queries\FilteredQuery filter() filter(\sherlock\components\FilterInterface $value)
  */
-class FilteredQuery extends Elasticsearchphp\Components\BaseComponent implements Elasticsearchphp\Components\QueryInterface
+class FilteredQuery extends \Elasticsearchphp\Components\BaseComponent implements \Elasticsearchphp\Components\QueryInterface
 {
     public function __construct($hashMap = null)
     {

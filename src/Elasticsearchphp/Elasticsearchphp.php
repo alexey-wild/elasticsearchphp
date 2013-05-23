@@ -3,9 +3,11 @@
 namespace Elasticsearchphp;
 
 use Elasticsearchphp\Cluster\Cluster;
+use Elasticsearchphp\Events\Events;
 use Elasticsearchphp\Requests;
 use Elasticsearchphp\Exceptions;
 use Elasticsearchphp\Wrappers;
+use Symfony\Component\EventDispatcher\EventDispatcher;
 
 /**
  * Primary object through which the ElasticSearch cluster is accessed.
@@ -31,7 +33,11 @@ class Elasticsearchphp
         $this->settings = array_merge(static::getDefaultSettings(), $userSettings);
 
         //Build a cluster and inject our dispatcher
-        $this->settings['cluster'] = new Cluster();
+        $this->settings['cluster'] = new Cluster($this->settings['event.dispatcher']);
+
+        //Connect Cluster's listener to the dispatcher
+        $eventCallback = array($this->settings['cluster'], 'onRequestExecute');
+        $this->settings['event.dispatcher']->addListener(Events::REQUEST_PREEXECUTE, $eventCallback);
 
         $this->autodetect();
     }
@@ -83,9 +89,8 @@ class Elasticsearchphp
     private static function getDefaultSettings()
     {
         return array(
-            // Application
             'base' => __DIR__.'/',
-            'mode' => 'development',
+            'event.dispatcher' => new EventDispatcher(),
             'cluster' => null,
             'cluster.autodetect' => false,
             );
@@ -93,54 +98,64 @@ class Elasticsearchphp
 
     /**
      * Query builder, used to return a QueryWrapper through which a Query component can be selected
-     * @return Elasticsearchphp\Wrappers\QueryWrapper
+     * @return \Elasticsearchphp\Wrappers\QueryWrapper
      */
     public static function queryBuilder()
     {
-        return new Elasticsearchphp\Wrappers\QueryWrapper();
+        return new \Elasticsearchphp\Wrappers\QueryWrapper();
     }
 
     /**
      * Filter builder, used to return a FilterWrapper through which a Filter component can be selected
-     * @return Elasticsearchphp\Wrappers\FilterWrapper
+     * @return \Elasticsearchphp\Wrappers\FilterWrapper
      */
     public static function filterBuilder()
     {
-        return new Elasticsearchphp\Wrappers\FilterWrapper();
+        return new \Elasticsearchphp\Wrappers\FilterWrapper();
     }
 
     /**
-     * @return Elasticsearchphp\Wrappers\SortWrapper
+     * @return \Elasticsearchphp\Wrappers\SortWrapper
      */
     public static function sortBuilder()
     {
-        return new Elasticsearchphp\Wrappers\SortWrapper();
+        return new \Elasticsearchphp\Wrappers\SortWrapper();
+    }
+
+
+    /**
+     * Index builder, used to return a IndexWrapper through which an Index component can be selected
+     * @return \Elasticsearchphp\Wrappers\IndexSettingsWrapper
+     */
+    public static function indexSettingsBuilder()
+    {
+        return new \Elasticsearchphp\Wrappers\IndexSettingsWrapper();
+    }
+
+
+    /**
+     * Mapping builder, used to return a MappingWrapper through which a Mapping component can be selected
+     * @param  null|string                     $type
+     * @return \Elasticsearchphp\Wrappers\MappingPropertyWrapper
+     */
+    public static function mappingBuilder($type = null)
+    {
+        return new \Elasticsearchphp\Wrappers\MappingPropertyWrapper($type);
     }
 
     /**
      * Used to obtain a SearchRequest object, allows querying the cluster with searches
-     * @return Elasticsearchphp\Requests\SearchRequest
+     * @return \Elasticsearchphp\Requests\SearchRequest
      */
     public function search()
     {
-        return new Elasticsearchphp\Requests\SearchRequest();
-    }
-
-    /**
-     * RawRequests allow the user to issue arbitrary commands to the ES cluster
-     * Effectively one step above a raw CURL command
-     *
-     * @return Elasticsearchphp\Requests\RawRequest
-     */
-    public function raw()
-    {
-        return new Elasticsearchphp\Requests\RawRequest();
+        return new \Elasticsearchphp\Requests\SearchRequest($this->settings['event.dispatcher']);
     }
 
     /**
      * @param  string                $index     Index to operate on
      * @param  string                $index,... Index to operate on
-     * @return requests\IndexRequest
+     * @return \Elasticsearchphp\Requests\IndexRequest
      */
     public function index($index = null)
     {
@@ -150,7 +165,7 @@ class Elasticsearchphp
 
         foreach ($args as $arg) $index[] = $arg;
 
-        return new Elasticsearchphp\Requests\IndexRequest($index);
+        return new \Elasticsearchphp\Requests\IndexRequest($this->settings['event.dispatcher'], $index);
     }
 
     /**
@@ -166,9 +181,9 @@ class Elasticsearchphp
      * Add a new node to the ES cluster
      * @param  string                                     $host server host address, either IP or domain (defaults to localhost)
      * @param  int                                        $port ElasticSearch port (defaults to 9200)
-     * @return Elasticsearchphp\Elasticsearchphp
-     * @throws Elasticsearchphp\Exceptions\BadResponseException
-     * @throws Elasticsearchphp\Exceptions\InvalidArgumentException
+     * @return \Elasticsearchphp\Elasticsearchphp
+     * @throws \Elasticsearchphp\Exceptions\BadResponseException
+     * @throws \Elasticsearchphp\Exceptions\InvalidArgumentException
      */
     public function addNode($host = 'localhost', $port = 9200)
     {

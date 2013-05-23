@@ -21,15 +21,14 @@ class Response
      */
     public $responseError;
 
-
     /**
-     * @param  \Elasticsearchphp\Common\tmp\RollingCurl\Request $response
+     * @param  \Elasticsearchphp\RollingCurl\Request $response
      * @throws \Elasticsearchphp\Exceptions\ServerErrorResponseException
      * @throws \Elasticsearchphp\Exceptions\BadResponseException
      */
     public function __construct($response)
     {
-        if (!isset($response)) throw new exceptions\BadResponseException("Response must be set in constructor.");
+        if (!isset($response)) throw new Exceptions\BadResponseException("Response must be set in constructor.");
 
         $this->responseInfo = $response->getResponseInfo();
         $this->responseError = $response->getResponseError();
@@ -49,9 +48,9 @@ class Response
     {
         $error = $this->responseData['error'];
 
-        if (strpos($error, "IndexMissingException") !== false) throw new exceptions\IndexMissingException($error);
-        elseif (strpos($error, "IndexAlreadyExistsException") !== false) throw new exceptions\IndexAlreadyExistsException($error);
-        else throw new exceptions\ClientErrorResponseException($error);
+        if (strpos($error, "IndexMissingException") !== false) throw new Exceptions\IndexMissingException($error);
+        elseif (strpos($error, "IndexAlreadyExistsException") !== false) throw new Exceptions\IndexAlreadyExistsException($error);
+        else throw new Exceptions\ClientErrorResponseException($error);
     }
 
     /**
@@ -62,7 +61,7 @@ class Response
     {
         $error = $this->responseData['error'];
 
-        if (strpos($error, "SearchPhaseExecutionException") !== false)throw new exceptions\SearchPhaseExecutionException($error);
-        else throw new exceptions\ServerErrorResponseException($error);
+        if (strpos($error, "SearchPhaseExecutionException") !== false)throw new Exceptions\SearchPhaseExecutionException($error);
+        else throw new Exceptions\ServerErrorResponseException($error);
     }
 }

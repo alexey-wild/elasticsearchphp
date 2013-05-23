@@ -4,7 +4,6 @@ namespace Elasticsearchphp\Responses;
 
 class IndexResponse extends Response
 {
-    
     /**
      * @var int
      */
@@ -15,8 +14,9 @@ class IndexResponse extends Response
      */
     public $acknowledged;
 
+
     /**
-     * @param \Elasticsearchphp\Common\tmp\RollingCurl\Request $response
+     * @param \Elasticsearchphp\RollingCurl\Request $response
      */
     public function __construct($response)
     {

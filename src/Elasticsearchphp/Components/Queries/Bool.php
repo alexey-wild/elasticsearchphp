@@ -5,11 +5,11 @@ namespace Elasticsearchphp\Components\Queries;
 use Elasticsearchphp\Components;
 
 /**
- * @method Elasticsearchphp\Components\Queries\Bool minimum_number_should_match() minimum_number_should_match(\int $value) Default: 2
- * @method Elasticsearchphp\Components\Queries\Bool boost() boost(\float $value) Default: 1.0
- * @method Elasticsearchphp\Components\Queries\Bool disable_coord() disable_coord(\int $value) Default: 1
+ * @method \Elasticsearchphp\Components\Queries\Bool minimum_number_should_match() minimum_number_should_match(\int $value) Default: 2
+ * @method \Elasticsearchphp\Components\Queries\Bool boost() boost(\float $value) Default: 1.0
+ * @method \Elasticsearchphp\Components\Queries\Bool disable_coord() disable_coord(\int $value) Default: 1
  */
-class Bool extends Elasticsearchphp\Components\BaseComponent implements Elasticsearchphp\Components\QueryInterface
+class Bool extends \Elasticsearchphp\Components\BaseComponent implements \Elasticsearchphp\Components\QueryInterface
 {
     public function __construct($hashMap = null)
     {
@@ -29,7 +29,7 @@ class Bool extends Elasticsearchphp\Components\BaseComponent implements Elastics
 
         if (count($args) == 1)$args = $args[0];
 
-        foreach ($args as $arg) if ($arg instanceof Elasticsearchphp\Components\QueryInterface) $this->params['must'][] = $arg->toArray();
+        foreach ($args as $arg) if ($arg instanceof \Elasticsearchphp\Components\QueryInterface) $this->params['must'][] = $arg->toArray();
 
         return $this;
     }
@@ -40,7 +40,7 @@ class Bool extends Elasticsearchphp\Components\BaseComponent implements Elastics
 
         if (count($args) == 1) $args = $args[0];
 
-        foreach ($args as $arg) if ($arg instanceof Elasticsearchphp\Components\QueryInterface) $this->params['must_not'][] = $arg->toArray();
+        foreach ($args as $arg) if ($arg instanceof \Elasticsearchphp\Components\QueryInterface) $this->params['must_not'][] = $arg->toArray();
 
         return $this;
     }
@@ -51,7 +51,7 @@ class Bool extends Elasticsearchphp\Components\BaseComponent implements Elastics
 
         if (count($args) == 1) $args = $args[0];
 
-        foreach ($args as $arg) if ($arg instanceof Elasticsearchphp\Components\QueryInterface) $this->params['should'][] = $arg->toArray();
+        foreach ($args as $arg) if ($arg instanceof \Elasticsearchphp\Components\QueryInterface) $this->params['should'][] = $arg->toArray();
 
         return $this;
     }

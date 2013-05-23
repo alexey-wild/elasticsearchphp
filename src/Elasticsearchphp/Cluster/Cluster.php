@@ -7,7 +7,8 @@ namespace Elasticsearchphp\Cluster;
  * @package Elasticsearchphp\Cluster
  */
 use Guzzle\Http\Client;
-use Elasticsearchphp\Exceptions\RuntimeException;
+use Elasticsearchphp\Events\RequestEvent;
+use Elasticsearchphp\RuntimeException;
 
 class Cluster
 {
@@ -26,6 +27,11 @@ class Cluster
         if(!is_numeric($port)) throw new Exceptions\InvalidArgumentException("Port argument must be a number");
 
         $this->nodes[$host] = array('host' => $host, 'port' => $port);
+    }
+
+    public function getNodes()
+    {
+        return $this->nodes;
     }
 
     /**

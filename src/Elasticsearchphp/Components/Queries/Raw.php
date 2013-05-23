@@ -6,9 +6,9 @@ use Elasticsearchphp\Components;
 use Elasticsearchphp\Exceptions;
 
 /**
- * @method Elasticsearchphp\Components\Queries\Raw Raw() Raw(\string $json)
+ * @method \Elasticsearchphp\Components\Queries\Raw Raw() Raw(\string $json)
  */
-class Raw extends Elasticsearchphp\Components\BaseComponent implements Elasticsearchphp\Components\QueryInterface
+class Raw extends \Elasticsearchphp\Components\BaseComponent implements \Elasticsearchphp\Components\QueryInterface
 {
     public function __construct($hashMap)
     {

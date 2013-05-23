@@ -5,10 +5,10 @@ namespace Elasticsearchphp\Components\Queries;
 use Elasticsearchphp\Components;
 
 /**
- * @method Elasticsearchphp\Components\Queries\CustomBoostFactor query() query(\sherlock\components\QueryInterface $value)
- * @method Elasticsearchphp\Components\Queries\CustomBoostFactor boost_factor() boost_factor(\float $value) Default: 3
+ * @method \Elasticsearchphp\Components\Queries\CustomBoostFactor query() query(\sherlock\components\QueryInterface $value)
+ * @method \Elasticsearchphp\Components\Queries\CustomBoostFactor boost_factor() boost_factor(\float $value) Default: 3
  */
-class CustomBoostFactor extends Elasticsearchphp\Components\BaseComponent implements Elasticsearchphp\Components\QueryInterface
+class CustomBoostFactor extends \Elasticsearchphp\Components\BaseComponent implements \Elasticsearchphp\Components\QueryInterface
 {
     public function __construct($hashMap = null)
     {
