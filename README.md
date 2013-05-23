@@ -1,0 +1,1 @@
+elasticsearchphp is a PHP (>=5.3.0) client for [ElasticSearch](http://www.elasticsearch.org/).
