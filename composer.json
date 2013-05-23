@@ -14,7 +14,7 @@
     ],
     "require": {
         "php": ">=5.3.0",
-        "guzzle/guzzle": "dev-master",
+        "guzzle/guzzle": "dev-master"
     },
     "autoload": {
         "psr-0": {
