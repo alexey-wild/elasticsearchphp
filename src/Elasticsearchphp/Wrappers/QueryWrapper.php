@@ -47,7 +47,7 @@ class QueryWrapper
     {
         $class = '\\Elasticsearchphp\\Components\\Queries\\'.$name;
 
-        if (count($arguments) > 0) $this->query =  new $class($arguments[0]);
+        if (count($arguments) > 0) $this->query = new $class($arguments[0]);
         else $this->query =  new $class();
 
         return $this->query;

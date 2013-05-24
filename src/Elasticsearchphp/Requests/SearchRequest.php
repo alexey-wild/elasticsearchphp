@@ -136,19 +136,6 @@ class SearchRequest extends Request
     }
 
     /**
-     * Sets the analyzer that will be executed
-     *
-     * @param $analyzer
-     * @return SearchRequest
-     */
-    public function analyzer($analyzer)
-    {
-        $this->params['analyzer'] = $analyzer;
-
-        return $this;
-    }
-
-    /**
      * Execute the search request on the ES cluster
      *
      * @throws \Sherlock\common\exceptions\RuntimeException
@@ -172,7 +159,6 @@ class SearchRequest extends Request
 
         if (isset($queryParams)) $queryParams = '?' . implode("&", $queryParams);
         else $queryParams = '';
-
 
         $command = new Command();
         $command->index($index)
@@ -213,7 +199,6 @@ class SearchRequest extends Request
 
         if (isset($this->params['query']) && $this->params['query'] instanceof Components\QueryInterface) $finalQuery['query'] = $this->params['query']->toArray();
         if (isset($this->params['filter']) && $this->params['filter'] instanceof Components\FilterInterface) $finalQuery['filter'] = $this->params['filter']->toArray();
-        if (isset($this->params['analyzer']) && $this->params['analyzer'] instanceof Components\MappingInterface) $finalQuery['analyzer'] = $this->params['analyzer']->toArray();
 
         foreach (array('from', 'size', 'timeout', 'sort') as $key) if (isset($this->params[$key])) $finalQuery[$key] = $this->params[$key];
 
