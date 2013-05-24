@@ -5,14 +5,14 @@ namespace Elasticsearchphp\Components\Filters;
 use Elasticsearchphp\Components;
 
 /**
- * @method Elasticsearchphp\Components\Filters\NumericRange field() field(\string $value)
- * @method Elasticsearchphp\Components\Filters\NumericRange from() from(\int $value)
- * @method Elasticsearchphp\Components\Filters\NumericRange to() to(\int $value)
- * @method Elasticsearchphp\Components\Filters\NumericRange include_lower() include_lower(\bool $value) Default: true
- * @method Elasticsearchphp\Components\Filters\NumericRange include_upper() include_upper(\bool $value) Default: false
- * @method Elasticsearchphp\Components\Filters\NumericRange _cache() _cache(\bool $value) Default: false
+ * @method  \Elasticsearchphp\Components\Filters\NumericRange field() field(\string $value)
+ * @method  \Elasticsearchphp\Components\Filters\NumericRange from() from(\int $value)
+ * @method  \Elasticsearchphp\Components\Filters\NumericRange to() to(\int $value)
+ * @method  \Elasticsearchphp\Components\Filters\NumericRange include_lower() include_lower(\bool $value) Default: true
+ * @method  \Elasticsearchphp\Components\Filters\NumericRange include_upper() include_upper(\bool $value) Default: false
+ * @method  \Elasticsearchphp\Components\Filters\NumericRange _cache() _cache(\bool $value) Default: false
  */
-class NumericRange extends Elasticsearchphp\Components\BaseComponent implements Elasticsearchphp\Components\FilterInterface
+class NumericRange extends \Elasticsearchphp\Components\BaseComponent implements \Elasticsearchphp\Components\FilterInterface
 {
     public function __construct($hashMap = null)
     {

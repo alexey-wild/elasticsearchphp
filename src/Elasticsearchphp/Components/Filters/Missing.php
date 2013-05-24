@@ -5,11 +5,11 @@ namespace Elasticsearchphp\Components\Filters;
 use Elasticsearchphp\Components;
 
 /**
- * @method Elasticsearchphp\Components\Filters\Missing field() field(\string $value)
- * @method Elasticsearchphp\Components\Filters\Missing existence() existence(\bool $value) Default: true
- * @method Elasticsearchphp\Components\Filters\Missing null_value() null_value(\bool $value) Default: false
+ * @method  \Elasticsearchphp\Components\Filters\Missing field() field(\string $value)
+ * @method  \Elasticsearchphp\Components\Filters\Missing existence() existence(\bool $value) Default: true
+ * @method  \Elasticsearchphp\Components\Filters\Missing null_value() null_value(\bool $value) Default: false
  */
-class Missing extends Elasticsearchphp\Components\BaseComponent implements Elasticsearchphp\Components\FilterInterface
+class Missing extends \Elasticsearchphp\Components\BaseComponent implements \Elasticsearchphp\Components\FilterInterface
 {
     public function __construct($hashMap = null)
     {

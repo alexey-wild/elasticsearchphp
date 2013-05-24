@@ -5,11 +5,11 @@ namespace Elasticsearchphp\Components\Filters;
 use Elasticsearchphp\Components;
 
 /**
- * @method Elasticsearchphp\Components\Filters\Nested path() path(\string $value)
- * @method Elasticsearchphp\Components\Filters\Nested query() query(\sherlock\components\QueryInterface $value)
- * @method Elasticsearchphp\Components\Filters\Nested _cache() _cache(\bool $value) Default: false
+ * @method  \Elasticsearchphp\Components\Filters\Nested path() path(\string $value)
+ * @method  \Elasticsearchphp\Components\Filters\Nested query() query(\Elasticsearchphp\components\QueryInterface $value)
+ * @method  \Elasticsearchphp\Components\Filters\Nested _cache() _cache(\bool $value) Default: false
  */
-class Nested extends Elasticsearchphp\Components\BaseComponent implements Elasticsearchphp\Components\FilterInterface
+class Nested extends \Elasticsearchphp\Components\BaseComponent implements \Elasticsearchphp\Components\FilterInterface
 {
     public function __construct($hashMap = null)
     {

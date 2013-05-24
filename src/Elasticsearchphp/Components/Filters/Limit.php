@@ -5,9 +5,9 @@ namespace Elasticsearchphp\Components\Filters;
 use Elasticsearchphp\Components;
 
 /**
- * @method Elasticsearchphp\Components\Filters\Limit value() value(\int $value)
+ * @method  \Elasticsearchphp\Components\Filters\Limit value() value(\int $value)
  */
-class Limit extends Elasticsearchphp\Components\BaseComponent implements Elasticsearchphp\Components\FilterInterface
+class Limit extends \Elasticsearchphp\Components\BaseComponent implements \Elasticsearchphp\Components\FilterInterface
 {
     public function __construct($hashMap = null)
     {

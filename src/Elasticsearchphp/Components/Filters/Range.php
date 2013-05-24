@@ -5,14 +5,14 @@ namespace Elasticsearchphp\Components\Filters;
 use Elasticsearchphp\Components;
 
 /**
- * @method Elasticsearchphp\Components\Filters\Range field() field(\string $value)
- * @method Elasticsearchphp\Components\Filters\Range from() from(mixed $value)
- * @method Elasticsearchphp\Components\Filters\Range to() to(mixed $value)
- * @method Elasticsearchphp\Components\Filters\Range include_lower() include_lower(\bool $value) Default: true
- * @method Elasticsearchphp\Components\Filters\Range include_upper() include_upper(\bool $value) Default: false
- * @method Elasticsearchphp\Components\Filters\Range _cache() _cache(\bool $value) Default: true
+ * @method  \Elasticsearchphp\Components\Filters\Range field() field(\string $value)
+ * @method  \Elasticsearchphp\Components\Filters\Range from() from(mixed $value)
+ * @method  \Elasticsearchphp\Components\Filters\Range to() to(mixed $value)
+ * @method  \Elasticsearchphp\Components\Filters\Range include_lower() include_lower(\bool $value) Default: true
+ * @method  \Elasticsearchphp\Components\Filters\Range include_upper() include_upper(\bool $value) Default: false
+ * @method  \Elasticsearchphp\Components\Filters\Range _cache() _cache(\bool $value) Default: true
  */
-class Range extends Elasticsearchphp\Components\BaseComponent implements Elasticsearchphp\Components\FilterInterface
+class Range extends \Elasticsearchphp\Components\BaseComponent implements \Elasticsearchphp\Components\FilterInterface
 {
     public function __construct($hashMap = null)
     {

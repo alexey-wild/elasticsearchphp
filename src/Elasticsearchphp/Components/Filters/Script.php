@@ -5,11 +5,11 @@ namespace Elasticsearchphp\Components\Filters;
 use Elasticsearchphp\Components;
 
 /**
- * @method Elasticsearchphp\Components\Filters\Script script() script(\string $value)
- * @method Elasticsearchphp\Components\Filters\Script params() params(array $value) Default: array()
- * @method Elasticsearchphp\Components\Filters\Script _cache() _cache(\bool $value) Default: false
+ * @method  \Elasticsearchphp\Components\Filters\Script script() script(\string $value)
+ * @method  \Elasticsearchphp\Components\Filters\Script params() params(array $value) Default: array()
+ * @method  \Elasticsearchphp\Components\Filters\Script _cache() _cache(\bool $value) Default: false
  */
-class Script extends Elasticsearchphp\Components\BaseComponent implements Elasticsearchphp\Components\FilterInterface
+class Script extends \Elasticsearchphp\Components\BaseComponent implements \Elasticsearchphp\Components\FilterInterface
 {
     public function __construct($hashMap = null)
     {

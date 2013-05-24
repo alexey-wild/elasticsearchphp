@@ -5,10 +5,10 @@ namespace Elasticsearchphp\Components\Filters;
 use Elasticsearchphp\Components;
 
 /**
- * @method Elasticsearchphp\Components\Filters\GeoPolygon points() points(array $value)
- * @method Elasticsearchphp\Components\Filters\GeoPolygon _cache() _cache(\bool $value) Default: false
+ * @method  \Elasticsearchphp\Components\Filters\GeoPolygon points() points(array $value)
+ * @method  \Elasticsearchphp\Components\Filters\GeoPolygon _cache() _cache(\bool $value) Default: false
  */
-class GeoPolygon extends Elasticsearchphp\Components\BaseComponent implements Elasticsearchphp\Components\FilterInterface
+class GeoPolygon extends \Elasticsearchphp\Components\BaseComponent implements \Elasticsearchphp\Components\FilterInterface
 {
     public function __construct($hashMap = null)
     {

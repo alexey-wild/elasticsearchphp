@@ -4,7 +4,7 @@ namespace Elasticsearchphp\Components\Filters;
 
 use Elasticsearchphp\Components;
 
-class MatchAll extends Elasticsearchphp\Components\BaseComponent implements Elasticsearchphp\Components\FilterInterface
+class MatchAll extends \Elasticsearchphp\Components\BaseComponent implements \Elasticsearchphp\Components\FilterInterface
 {
     public function __construct($hashMap = null)
     {

@@ -5,7 +5,7 @@ namespace Elasticsearchphp\Components\Queries;
 use Elasticsearchphp\Components;
 
 /**
- * @method \Elasticsearchphp\Components\Queries\CustomFiltersScore query() query(\sherlock\components\QueryInterface $value)
+ * @method \Elasticsearchphp\Components\Queries\CustomFiltersScore query() query(\Elasticsearchphp\components\QueryInterface $value)
  * @method \Elasticsearchphp\Components\Queries\CustomFiltersScore score_mode() score_mode(\string $value) Default: "first"
  * @method \Elasticsearchphp\Components\Queries\CustomFiltersScore max_boost() max_boost(\float $value) Default: 10
  */

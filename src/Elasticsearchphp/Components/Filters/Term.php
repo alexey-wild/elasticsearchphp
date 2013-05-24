@@ -5,11 +5,11 @@ namespace Elasticsearchphp\Components\Filters;
 use Elasticsearchphp\Components;
 
 /**
- * @method Elasticsearchphp\Components\Filters\Term field() field(\string $value)
- * @method Elasticsearchphp\Components\Filters\Term term() term(\string $value)
- * @method Elasticsearchphp\Components\Filters\Term _cache() _cache(\bool $value) Default: true
+ * @method  \Elasticsearchphp\Components\Filters\Term field() field(\string $value)
+ * @method  \Elasticsearchphp\Components\Filters\Term term() term(\string $value)
+ * @method  \Elasticsearchphp\Components\Filters\Term _cache() _cache(\bool $value) Default: true
  */
-class Term extends Elasticsearchphp\Components\BaseComponent implements Elasticsearchphp\Components\FilterInterface
+class Term extends \Elasticsearchphp\Components\BaseComponent implements \Elasticsearchphp\Components\FilterInterface
 {
     public function __construct($hashMap = null)
     {

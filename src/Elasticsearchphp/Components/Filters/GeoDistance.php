@@ -5,12 +5,12 @@ namespace Elasticsearchphp\Components\Filters;
 use Elasticsearchphp\Components;
 
 /**
- * @method Elasticsearchphp\Components\Filters\GeoDistance distance() distance(\string $value)
- * @method Elasticsearchphp\Components\Filters\GeoDistance lat() lat(\float $value)
- * @method Elasticsearchphp\Components\Filters\GeoDistance lon() lon(\float $value)
- * @method Elasticsearchphp\Components\Filters\GeoDistance _cache() _cache(\bool $value) Default: false
+ * @method  \Elasticsearchphp\Components\Filters\GeoDistance distance() distance(\string $value)
+ * @method  \Elasticsearchphp\Components\Filters\GeoDistance lat() lat(\float $value)
+ * @method  \Elasticsearchphp\Components\Filters\GeoDistance lon() lon(\float $value)
+ * @method  \Elasticsearchphp\Components\Filters\GeoDistance _cache() _cache(\bool $value) Default: false
  */
-class GeoDistance extends Elasticsearchphp\Components\BaseComponent implements Elasticsearchphp\Components\FilterInterface
+class GeoDistance extends \Elasticsearchphp\Components\BaseComponent implements \Elasticsearchphp\Components\FilterInterface
 {
     public function __construct($hashMap = null)
     {

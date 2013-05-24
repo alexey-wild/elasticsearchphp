@@ -5,8 +5,8 @@ namespace Elasticsearchphp\Components\Queries;
 use Elasticsearchphp\Components;
 
 /**
- * @method \Elasticsearchphp\Components\Queries\FilteredQuery query() query(\sherlock\components\QueryInterface $value)
- * @method \Elasticsearchphp\Components\Queries\FilteredQuery filter() filter(\sherlock\components\FilterInterface $value)
+ * @method \Elasticsearchphp\Components\Queries\FilteredQuery query() query(\Elasticsearchphp\components\QueryInterface $value)
+ * @method \Elasticsearchphp\Components\Queries\FilteredQuery filter() filter(\Elasticsearchphp\components\FilterInterface $value)
  */
 class FilteredQuery extends \Elasticsearchphp\Components\BaseComponent implements \Elasticsearchphp\Components\QueryInterface
 {

@@ -6,9 +6,9 @@ use Elasticsearchphp\Components;
 use Elasticsearchphp\Exceptions;
 
 /**
- * @method Elasticsearchphp\Components\Filters\Raw Raw() Raw(\string $json)
+ * @method  \Elasticsearchphp\Components\Filters\Raw Raw() Raw(\string $json)
  */
-class Raw extends Elasticsearchphp\Components\BaseComponent implements Elasticsearchphp\Components\FilterInterface
+class Raw extends \Elasticsearchphp\Components\BaseComponent implements \Elasticsearchphp\Components\FilterInterface
 {
     /**
      * @param array|string $hashMap

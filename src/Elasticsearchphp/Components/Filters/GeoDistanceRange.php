@@ -2,14 +2,14 @@
 
 namespace Elasticsearchphp\Components\Filters;
 
-use Elasticsearchphp\Сomponents;
+use Elasticsearchphp\Components;
 
 /**
- * @method Elasticsearchphp\Components\Filters\GeoDistanceRange from() from(\string $value)
- * @method Elasticsearchphp\Components\Filters\GeoDistanceRange to() to(\string $value)
- * @method Elasticsearchphp\Components\Filters\GeoDistanceRange lat() lat(\float $value)
- * @method Elasticsearchphp\Components\Filters\GeoDistanceRange lon() lon(\float $value)
- * @method Elasticsearchphp\Components\Filters\GeoDistanceRange _cache() _cache(\bool $value) Default: false
+ * @method  \Elasticsearchphp\Components\Filters\GeoDistanceRange from() from(\string $value)
+ * @method  \Elasticsearchphp\Components\Filters\GeoDistanceRange to() to(\string $value)
+ * @method  \Elasticsearchphp\Components\Filters\GeoDistanceRange lat() lat(\float $value)
+ * @method  \Elasticsearchphp\Components\Filters\GeoDistanceRange lon() lon(\float $value)
+ * @method  \Elasticsearchphp\Components\Filters\GeoDistanceRange _cache() _cache(\bool $value) Default: false
  */
 class GeoDistanceRange extends \Elasticsearchphp\Сomponents\BaseComponent implements \Elasticsearchphp\Сomponents\FilterInterface
 {

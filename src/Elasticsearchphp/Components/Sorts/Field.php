@@ -5,16 +5,15 @@ namespace Elasticsearchphp\Components\Sorts;
 use Elasticsearchphp\Components;
 
 /**
- * @method Elasticsearchphp\Components\Sorts\Field name() name(\string $value)
- * @method Elasticsearchphp\Components\Sorts\Field order() order(\string $value) Default: null
- * @method Elasticsearchphp\Components\Sorts\Field missing() missing(\string $value) Default: null
- * @method Elasticsearchphp\Components\Sorts\Field ignore_unmapped() ignore_unmapped(\bool $value) Default: null
+ * @method \Elasticsearchphp\Components\Sorts\Field name() name(\string $value)
+ * @method \Elasticsearchphp\Components\Sorts\Field order() order(\string $value) Default: null
+ * @method \Elasticsearchphp\Components\Sorts\Field missing() missing(\string $value) Default: null
+ * @method \Elasticsearchphp\Components\Sorts\Field ignore_unmapped() ignore_unmapped(\bool $value) Default: null
  */
-class Field extends Elasticsearchphp\Components\BaseComponent implements Elasticsearchphp\Components\SortInterface
+class Field extends \Elasticsearchphp\Components\BaseComponent implements \Elasticsearchphp\Components\SortInterface
 {
     public function __construct($hashMap = null)
     {
-        $this->params['order'] = null;
         $this->params['sort_mode'] = null;
         $this->params['order'] = null;
         $this->params['missing'] = null;

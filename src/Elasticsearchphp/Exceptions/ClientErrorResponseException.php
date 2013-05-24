@@ -2,4 +2,4 @@
 
 namespace Elasticsearchphp\Exceptions;
 
-class ClientErrorResponseException extends \Exception
+class ClientErrorResponseException extends \Exception {}

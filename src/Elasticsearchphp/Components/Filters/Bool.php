@@ -5,12 +5,12 @@ namespace Elasticsearchphp\Components\Filters;
 use Elasticsearchphp\Components;
 
 /**
- * @method Elasticsearchphp\Components\Filters\Bool must() must(array $value)
- * @method Elasticsearchphp\Components\Filters\Bool must_not() must_not(array $value)
- * @method Elasticsearchphp\Components\Filters\Bool should() should(array $value)
- * @method Elasticsearchphp\Components\Filters\Bool _cache() _cache(\bool $value) Default: false
+ * @method  \Elasticsearchphp\Components\Filters\Bool must() must(array $value)
+ * @method  \Elasticsearchphp\Components\Filters\Bool must_not() must_not(array $value)
+ * @method  \Elasticsearchphp\Components\Filters\Bool should() should(array $value)
+ * @method  \Elasticsearchphp\Components\Filters\Bool _cache() _cache(\bool $value) Default: false
  */
-class Bool extends Elasticsearchphp\Components\BaseComponent implements Elasticsearchphp\Components\FilterInterface
+class Bool extends \Elasticsearchphp\Components\BaseComponent implements \Elasticsearchphp\Components\FilterInterface
 {
     public function __construct($hashMap = null)
     {

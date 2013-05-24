@@ -5,14 +5,14 @@ namespace Elasticsearchphp\Components\Filters;
 use Elasticsearchphp\Components;
 
 /**
- * @method Elasticsearchphp\Components\Filters\GeoBoundingBox top_left_lat() top_left_lat(\float $value)
- * @method Elasticsearchphp\Components\Filters\GeoBoundingBox top_left_lon() top_left_lon(\float $value)
- * @method Elasticsearchphp\Components\Filters\GeoBoundingBox bottom_right_lat() bottom_right_lat(\float $value)
- * @method Elasticsearchphp\Components\Filters\GeoBoundingBox bottom_right_lon() bottom_right_lon(\float $value)
- * @method Elasticsearchphp\Components\Filters\GeoBoundingBox type() type(\string $value) Default: "memory"
- * @method Elasticsearchphp\Components\Filters\GeoBoundingBox _cache() _cache(\bool $value) Default: false
+ * @method  \Elasticsearchphp\Components\Filters\GeoBoundingBox top_left_lat() top_left_lat(\float $value)
+ * @method  \Elasticsearchphp\Components\Filters\GeoBoundingBox top_left_lon() top_left_lon(\float $value)
+ * @method  \Elasticsearchphp\Components\Filters\GeoBoundingBox bottom_right_lat() bottom_right_lat(\float $value)
+ * @method  \Elasticsearchphp\Components\Filters\GeoBoundingBox bottom_right_lon() bottom_right_lon(\float $value)
+ * @method  \Elasticsearchphp\Components\Filters\GeoBoundingBox type() type(\string $value) Default: "memory"
+ * @method  \Elasticsearchphp\Components\Filters\GeoBoundingBox _cache() _cache(\bool $value) Default: false
  */
-class GeoBoundingBox extends Elasticsearchphp\Components\BaseComponent implements Elasticsearchphp\Components\FilterInterface
+class GeoBoundingBox extends \Elasticsearchphp\Components\BaseComponent implements \Elasticsearchphp\Components\FilterInterface
 {
     public function __construct($hashMap = null)
     {

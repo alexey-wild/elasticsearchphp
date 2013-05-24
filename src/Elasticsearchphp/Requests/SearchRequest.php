@@ -155,8 +155,6 @@ class SearchRequest extends Request
 
         if (isset($this->params['routing'])) $queryParams[] = $this->params['routing'];
 
-//        if (isset($this->params['analyzer'])) $queryParams[] = $this->params['analyzer'];
-
         if (isset($queryParams)) $queryParams = '?' . implode("&", $queryParams);
         else $queryParams = '';
 

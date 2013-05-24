@@ -5,10 +5,10 @@ namespace Elasticsearchphp\Components\Filters;
 use Elasticsearchphp\Components;
 
 /**
- * @method Elasticsearchphp\Components\Filters\HasParent parent_type() parent_type(\string $value)
- * @method Elasticsearchphp\Components\Filters\HasParent query() query(\sherlock\components\QueryInterface $value)
+ * @method  \Elasticsearchphp\Components\Filters\HasParent parent_type() parent_type(\string $value)
+ * @method  \Elasticsearchphp\Components\Filters\HasParent query() query(\Elasticsearchphp\components\QueryInterface $value)
  */
-class HasParent extends Elasticsearchphp\Components\BaseComponent implements Elasticsearchphp\Components\FilterInterface
+class HasParent extends \Elasticsearchphp\Components\BaseComponent implements \Elasticsearchphp\Components\FilterInterface
 {
     public function __construct($hashMap = null)
     {

@@ -11,7 +11,7 @@ use Elasticsearchphp\Exceptions;
  * @method \Elasticsearchphp\Components\Mappings\Object path() path(\string $value)
  * @method \Elasticsearchphp\Components\Mappings\Object dynamic() dynamic(\bool $value)
  * @method \Elasticsearchphp\Components\Mappings\Object include_in_all() include_in_all(\bool $value)
- * @method \Elasticsearchphp\Components\Mappings\Object object() object(\sherlock\components\MappingInterface $value)
+ * @method \Elasticsearchphp\Components\Mappings\Object object() object(\Elasticsearchphp\components\MappingInterface $value)
  */
 class Object extends \Elasticsearchphp\Components\BaseComponent implements \Elasticsearchphp\Components\MappingInterface
 {

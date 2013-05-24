@@ -5,9 +5,9 @@ namespace Elasticsearchphp\Components\Filters;
 use Elasticsearchphp\Components;
 
 /**
- * @method Elasticsearchphp\Components\Filters\OrFilter _cache() _cache(\bool $value) Default: false
+ * @method  \Elasticsearchphp\Components\Filters\OrFilter _cache() _cache(\bool $value) Default: false
  */
-class OrFilter extends Elasticsearchphp\Components\BaseComponent implements Elasticsearchphp\Components\FilterInterface
+class OrFilter extends \Elasticsearchphp\Components\BaseComponent implements \Elasticsearchphp\Components\FilterInterface
 {
     public function __construct($hashMap = null)
     {
