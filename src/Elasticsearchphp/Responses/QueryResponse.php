@@ -27,7 +27,7 @@ class QueryResponse extends Response implements \IteratorAggregate, \Countable
     /**
      * @var array
      */
-    public $hits;
+    public $hits = array();
 
     /**
      * @param  \Elasticsearchphp\RollingCurl\Request                $response
@@ -63,7 +63,8 @@ class QueryResponse extends Response implements \IteratorAggregate, \Countable
 
     public function getIterator()
     {
-        return new \ArrayIterator($this->hits);
+	if (is_array($this->hits) && count($this->hits)) return new \ArrayIterator($this->hits);
+	return  new \ArrayIterator(array());
     }
 
     public function count()
