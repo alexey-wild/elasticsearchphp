@@ -162,12 +162,16 @@ class IndexDocumentRequest extends Request
 
         $this->finalizeCurrentCommand();
 
-
-        if (is_array($value)) {
-            $this->params['doc'] = $value;
-        } elseif (is_string($value)) {
-            $this->params['doc'] = json_decode($value, true);
+        if (is_string($value)) {
+            $value = json_decode($value, true);
         }
+
+        if (array_key_exists('_id', $value)) {
+            $id = $value['_id'];
+            unset($value['_id']);
+        }
+
+        $this->params['doc'] = $value;
 
         if ($id !== null) {
             $this->currentCommand->id($id)->action('put');
