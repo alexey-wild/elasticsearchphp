@@ -153,6 +153,35 @@ class Elasticsearchphp
     }
 
     /**
+     * Used to return an IndexDocumentRequest object, allows adding a doc to the index
+     * @return \Elasticsearchphp\IndexDocumentRequest
+     */
+    public function document()
+    {
+        return new \Elasticsearchphp\Requests\IndexDocumentRequest($this->settings['event.dispatcher']);
+    }
+
+    /**
+     * Used to return a DeleteDocumentRequest object, allows deleting a doc from the index
+     * @return \Elasticsearchphp\Requests\DeleteDocumentRequest
+     */
+    public function deleteDocument()
+    {
+        return new \Elasticsearchphp\Requests\DeleteDocumentRequest($this->settings['event.dispatcher']);
+    }
+
+
+    /**
+     * Used to return a GetDocumentRequest object, allows retrieving a doc by id
+     * @return \Elasticsearchphp\Requests\GetDocumentRequest
+     */
+    public function getDocument()
+    {
+        return new \Elasticsearchphp\Requests\GetDocumentRequest($this->settings['event.dispatcher']);
+    }
+
+
+    /**
      * @param  string                $index     Index to operate on
      * @param  string                $index,... Index to operate on
      * @return \Elasticsearchphp\Requests\IndexRequest
@@ -198,6 +227,12 @@ class Elasticsearchphp
     public function getElasticsearchphpSettings()
     {
         return $this->settings;
+    }
+
+    private function initializeEventDispatcher()
+    {
+        $eventCallback = array($this->settings['cluster'], 'onRequestExecute');
+        $this->settings['event.dispatcher']->addListener(Events::REQUEST_PREEXECUTE, $eventCallback);
     }
 
 }

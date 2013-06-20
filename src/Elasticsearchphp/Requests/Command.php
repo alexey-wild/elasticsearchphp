@@ -62,7 +62,7 @@ class Command implements CommandInterface
         $uri = '/'.$this->params['index'];
 
         foreach (array('type', 'id', 'suffix') as $item) {
-            if (isset($this->params[$item]) && $this->params[$item] !== null) $uri .= '/' .$this->params[$item];
+            if (isset($this->params[$item]) && $this->params[$item] !== null && $this->params[$item] != '') $uri .= '/' .$this->params[$item];
         }
 
         return $uri;

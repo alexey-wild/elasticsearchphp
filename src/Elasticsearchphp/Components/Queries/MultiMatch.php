@@ -26,12 +26,11 @@ class MultiMatch extends \Elasticsearchphp\Components\BaseComponent implements \
 {
     public function __construct($hashMap = null)
     {
-
         $this->params['boost'] = 1;
         $this->params['operator'] = 'and';
         $this->params['analyzer'] = 'default';
         $this->params['fuzziness'] = null;
-        $this->params['fuzzy_rewrite'] = 'constant_score_default';
+        //$this->params['fuzzy_rewrite'] = 'constant_score_default';
         $this->params['lenient'] = 1;
         $this->params['max_expansions'] = 100;
         $this->params['minimum_should_match'] = 2;
@@ -42,4 +41,29 @@ class MultiMatch extends \Elasticsearchphp\Components\BaseComponent implements \
         parent::__construct($hashMap);
     }
 
+    public function toArray()
+    {
+        $ret = array (
+          'multi_match' =>
+            array (
+              'query' => $this->params["query"],
+              'fields' => $this->params["fields"],
+              'boost' => $this->params["boost"],
+              'operator' => $this->params["operator"],
+              'analyzer' => $this->params["analyzer"],
+              'fuzziness' => $this->params["fuzziness"],
+              //'fuzzy_rewrite' => $this->params["fuzzy_rewrite"],
+              'lenient' => $this->params["lenient"],
+              'max_expansions' => $this->params["max_expansions"],
+              'minimum_should_match' => $this->params["minimum_should_match"],
+              'prefix_length' => $this->params["prefix_length"],
+              'use_dis_max' => $this->params["use_dis_max"],
+              'tie_breaker' => $this->params["tie_breaker"]
+            )
+        );
+
+        return $ret;
+    }
+
+    
 }

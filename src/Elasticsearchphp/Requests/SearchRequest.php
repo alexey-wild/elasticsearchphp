@@ -138,8 +138,8 @@ class SearchRequest extends Request
     /**
      * Execute the search request on the ES cluster
      *
-     * @throws \Sherlock\common\exceptions\RuntimeException
-     * @return \Sherlock\responses\QueryResponse
+     * @throws \RuntimeException
+     * @return \Elasticsearchphp\Responses\QueryResponse
      */
     public function execute()
     {
