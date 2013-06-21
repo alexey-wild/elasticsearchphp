@@ -160,6 +160,14 @@ class IndexDocumentRequest extends Request
             throw new \RuntimeException("Cannot add a new document to an external BatchCommandInterface");
         }
 
+        foreach ($value as $index => $val) {
+            if ($val instanceof \MongoId) {
+                $value[$index] = (string)$val;
+            } elseif ($val instanceof \MongoDate) {
+                $value[$index] = date('Y-m-d H:i:s', $val->sec);
+            }
+        }
+
         $this->finalizeCurrentCommand();
 
         if (is_string($value)) {
