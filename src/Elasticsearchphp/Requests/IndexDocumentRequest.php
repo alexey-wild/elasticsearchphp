@@ -160,23 +160,24 @@ class IndexDocumentRequest extends Request
             throw new \RuntimeException("Cannot add a new document to an external BatchCommandInterface");
         }
 
+        if (is_string($value)) {
+            $value = json_decode($value, true);
+        }
+
         foreach ($value as $index => $val) {
             if ($val instanceof \MongoId) {
                 $value[$index] = (string)$val;
             } elseif ($val instanceof \MongoDate) {
                 $value[$index] = date('Y-m-d H:i:s', $val->sec);
+            } elseif ($val instanceof \DateTime) {
+                $value[$index] = $val->format('Y-m-d H:i:s');
             }
         }
 
         $this->finalizeCurrentCommand();
 
-        if (is_string($value)) {
-            $value = json_decode($value, true);
-        }
-
         if (array_key_exists('_id', $value)) {
             $id = $value['_id'];
-            unset($value['_id']);
         }
 
         $this->params['doc'] = $value;

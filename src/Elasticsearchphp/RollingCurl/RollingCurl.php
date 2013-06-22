@@ -138,7 +138,6 @@ class RollingCurl
      */
     public function post($url, $postData = null, $headers = null, $options = null)
     {
-        //var_dump($url, $postData); die();
         return $this->request($url, "POST", $postData, $headers, $options);
     }
 
