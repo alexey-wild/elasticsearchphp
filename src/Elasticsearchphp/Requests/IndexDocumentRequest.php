@@ -171,9 +171,7 @@ class IndexDocumentRequest extends Request
                 $value[$index] = date('Y-m-d H:i:s', $val->sec);
             } elseif ($val instanceof \DateTime) {
                 $value[$index] = $val->format('Y-m-d H:i:s');
-            } elseif (is_array($val)) {
-                return $this;
-            }
+            } elseif (is_array($val)) {}
         }
 
         $this->finalizeCurrentCommand();
