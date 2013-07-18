@@ -173,7 +173,7 @@ class IndexDocumentRequest extends Request
                 $value[$index] = $val->format('Y-m-d H:i:s');
             } elseif ($val instanceof \MongoInt64) {
                 $value[$index] = (int)$val->__toString();
-            } elseif (!is_int($val) or !is_string($val)) {
+            } elseif (!is_int($val) && !is_string($val)) {
                 unset($value[$index]);
             }
         }
@@ -267,7 +267,6 @@ class IndexDocumentRequest extends Request
         }
 
         */
-
 
         $this->finalizeCurrentCommand();
 
