@@ -171,7 +171,9 @@ class IndexDocumentRequest extends Request
                 $value[$index] = date('Y-m-d H:i:s', $val->sec);
             } elseif ($val instanceof \DateTime) {
                 $value[$index] = $val->format('Y-m-d H:i:s');
-            } elseif (is_array($val)) {
+            } elseif ($val instanceof \MongoInt64) {
+                $value[$index] = (int)$val->__toString();
+            } elseif (!is_int($val) or !is_string($val)) {
                 unset($value[$index]);
             }
         }
