@@ -12,6 +12,7 @@ class Not extends \Elasticsearchphp\Components\BaseComponent implements \Elastic
     public function __construct($hashMap = null)
     {
         $this->params['_cache'] = false;
+        $this->params['not'] = null;
 
         parent::__construct($hashMap);
     }
@@ -22,8 +23,8 @@ class Not extends \Elasticsearchphp\Components\BaseComponent implements \Elastic
      */
     public function not($value)
     {
-        if ($value instanceof Elasticsearchphp\Components\QueryInterface) $this->params['not'] = $value->toArray();
-        elseif ($value instanceof Elasticsearchphp\Components\FilterInterface) $this->params['not'] = array("filter" => $value->toArray());
+        if ($value instanceof \Elasticsearchphp\Components\QueryInterface) $this->params['not'] = $value->toArray();
+        elseif ($value instanceof \Elasticsearchphp\Components\FilterInterface) $this->params['not'] = array("filter" => $value->toArray());
 
         return $this;
     }
