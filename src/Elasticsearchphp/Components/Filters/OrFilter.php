@@ -11,7 +11,7 @@ class OrFilter extends \Elasticsearchphp\Components\BaseComponent implements \El
 {
     public function __construct($hashMap = null)
     {
-        $this->params['_cache'] = false;
+        $this->params['_cache'] = null;
 
         parent::__construct($hashMap);
     }
@@ -42,8 +42,8 @@ class OrFilter extends \Elasticsearchphp\Components\BaseComponent implements \El
     {
         $ret = array (
           'or' => $this->params["queries"],
-          '_cache' => $this->params["_cache"],
         );
+        if ($this->params["_cache"]) $ret['_cache'] =  $this->params["_cache"];
 
         return $ret;
     }
