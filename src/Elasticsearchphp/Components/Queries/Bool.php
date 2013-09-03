@@ -16,9 +16,9 @@ class Bool extends \Elasticsearchphp\Components\BaseComponent implements \Elasti
         $this->params['must'] = array();
         $this->params['must_not'] = array();
         $this->params['should'] = array();
-        $this->params['minimum_number_should_match'] = 2;
+/*        $this->params['minimum_number_should_match'] = 2;
         $this->params['boost'] = 1.0;
-        $this->params['disable_coord'] = 1;
+        $this->params['disable_coord'] = 1;*/
 
         parent::__construct($hashMap);
     }
@@ -66,10 +66,10 @@ class Bool extends \Elasticsearchphp\Components\BaseComponent implements \Elasti
           array (
             'must' => $this->params["must"],
             'must_not' => $this->params["must_not"],
-            'should' => $this->params["should"],
-            'minimum_number_should_match' => $this->params["minimum_number_should_match"],
+            'should' => $this->params["should"]
+/*            'minimum_number_should_match' => $this->params["minimum_number_should_match"],
             'boost' => $this->params["boost"],
-            'disable_coord' => $this->params["disable_coord"],
+            'disable_coord' => $this->params["disable_coord"],*/
           ),
         );
 

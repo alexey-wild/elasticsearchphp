@@ -30,9 +30,9 @@ class QueryStringMultiField extends \Elasticsearchphp\Components\BaseComponent i
     public function __construct($hashMap = null)
     {
         $this->params['boost'] = 2.0;
-        $this->params['enable_position_increments'] = true;
+        // $this->params['enable_position_increments'] = true;
         $this->params['default_operator'] = "OR";
-        $this->params['analyzer'] = "default";
+/*        $this->params['analyzer'] = "default";
         $this->params['allow_leading_wildcard'] = false;
         $this->params['lowercase_expanded_terms'] = 1;
         $this->params['fuzzy_min_sim'] = 0.5;
@@ -40,12 +40,12 @@ class QueryStringMultiField extends \Elasticsearchphp\Components\BaseComponent i
         $this->params['lenient'] = 1;
         $this->params['phrase_slop'] = 10;
         $this->params['analyze_wildcard'] = true;
-        $this->params['auto_generate_phrase_queries'] = false;
+        $this->params['auto_generate_phrase_queries'] = false;*/
 //        $this->params['rewrite'] = "constant_score_default";
-        $this->params['quote_analyzer'] = "standard";
+/*        $this->params['quote_analyzer'] = "standard";
         $this->params['quote_field_suffix'] = ".unstemmed";
         $this->params['use_dis_max'] = true;
-        $this->params['tie_breaker'] = 1;
+        $this->params['tie_breaker'] = 1;*/
 
         parent::__construct($hashMap);
     }
@@ -57,9 +57,9 @@ class QueryStringMultiField extends \Elasticsearchphp\Components\BaseComponent i
               array (
                 'query' => $this->params["query"],
                 'fields' => $this->params["fields"],
+                'default_operator' => $this->params["default_operator"]
+/*                'enable_position_increments' => $this->params["enable_position_increments"],
                 'boost' => $this->params["boost"],
-                'enable_position_increments' => $this->params["enable_position_increments"],
-                'default_operator' => $this->params["default_operator"],
                 'analyzer' => $this->params["analyzer"],
                 'allow_leading_wildcard' => $this->params["allow_leading_wildcard"],
                 'lowercase_expanded_terms' => $this->params["lowercase_expanded_terms"],
@@ -73,7 +73,7 @@ class QueryStringMultiField extends \Elasticsearchphp\Components\BaseComponent i
                 'quote_analyzer' => $this->params["quote_analyzer"],
                 'quote_field_suffix' => $this->params["quote_field_suffix"],
                 'use_dis_max' => $this->params["use_dis_max"],
-                'tie_breaker' => $this->params["tie_breaker"],
+                'tie_breaker' => $this->params["tie_breaker"],*/
               )
             //'rewrite' => $this->params["rewrite"],
         );
