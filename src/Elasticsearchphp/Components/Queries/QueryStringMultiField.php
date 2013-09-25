@@ -32,6 +32,7 @@ class QueryStringMultiField extends \Elasticsearchphp\Components\BaseComponent i
         $this->params['boost'] = 2.0;
         // $this->params['enable_position_increments'] = true;
         $this->params['default_operator'] = "OR";
+        $this->params['analyze_wildcard'] = true;
 /*        $this->params['analyzer'] = "default";
         $this->params['allow_leading_wildcard'] = false;
         $this->params['lowercase_expanded_terms'] = 1;
@@ -39,7 +40,6 @@ class QueryStringMultiField extends \Elasticsearchphp\Components\BaseComponent i
         $this->params['fuzzy_prefix_length'] = 2;
         $this->params['lenient'] = 1;
         $this->params['phrase_slop'] = 10;
-        $this->params['analyze_wildcard'] = true;
         $this->params['auto_generate_phrase_queries'] = false;*/
 //        $this->params['rewrite'] = "constant_score_default";
 /*        $this->params['quote_analyzer'] = "standard";
@@ -57,7 +57,8 @@ class QueryStringMultiField extends \Elasticsearchphp\Components\BaseComponent i
               array (
                 'query' => $this->params["query"],
                 'fields' => $this->params["fields"],
-                'default_operator' => $this->params["default_operator"]
+                'default_operator' => $this->params["default_operator"],
+                'analyze_wildcard' => $this->params["analyze_wildcard"]
 /*                'enable_position_increments' => $this->params["enable_position_increments"],
                 'boost' => $this->params["boost"],
                 'analyzer' => $this->params["analyzer"],
@@ -67,7 +68,6 @@ class QueryStringMultiField extends \Elasticsearchphp\Components\BaseComponent i
                 'fuzzy_prefix_length' => $this->params["fuzzy_prefix_length"],
                 'lenient' => $this->params["lenient"],
                 'phrase_slop' => $this->params["phrase_slop"],
-                'analyze_wildcard' => $this->params["analyze_wildcard"],
                 'auto_generate_phrase_queries' => $this->params["auto_generate_phrase_queries"],
 
                 'quote_analyzer' => $this->params["quote_analyzer"],
